@@ -1,0 +1,42 @@
+//********* color palette ********/
+
+.root{
+    --main-color: #7a416d; 
+    --main-light: #806083;
+    --main-contrast: #535077;
+    --main-contrast-light: #9CB1D2;
+    --main-contrast-shadow: #7B93B8;
+}
+
+
+body, html{
+    height: 100%;
+    background-image: url("/public/images/background.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-y: auto;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+h1{
+    font-size: 7vw;
+    color: #827717;
+}
+
+.flex-container {
+  display: flex;
+}
+
+a{
+    color: #f0f4c3 !important;
+}
