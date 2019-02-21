@@ -3,15 +3,15 @@
     <type>org.netbeans.modules.ant.freeform</type>
     <configuration>
         <general-data xmlns="http://www.netbeans.org/ns/freeform-project/1">
-            <name>xml-practice</name>
+            <name>book-control</name>
         </general-data>
         <general-data xmlns="http://www.netbeans.org/ns/freeform-project/2">
             <!-- Do not use Project Properties customizer when editing this file manually. -->
-            <name>xml-practice</name>
+            <name>book-control</name>
             <properties>
                 <property name="ant.script">/home/dsi/Documentos/play-1.3.2/framework/build.xml</property>
                 <property name="application.path">/home/dsi/Documentos/pp/book-control</property>
-                <property name="application.name">xml-practice</property>
+                <property name="application.name">book-control</property>
                 <property name="play.id"></property>
             </properties>
             <folders>

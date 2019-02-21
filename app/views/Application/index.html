@@ -1,20 +1,22 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
 
-<div class="container">
+<div class="container" id="welcome-page">
     <div class="flex-container">
         <div><h1>Keep track of your books</h1></div>
-        <div>
+        <div class="container" id = "index-card">
             <div class="col s12 m6">
                 <div class="card lime">
                     <div class="card-content white-text">
-                        <span class="card-title">Card Title</span>
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
+                        <span class="card-title">New here?</span>
+                        <p>This is a practice project in order to learn how to work with XML files.
+                        I'm working with Play Framework, using Java, Javascript and libraries like Materialize.
+                        Let's try the XML files now!</p>
                     </div>
                     <div class="card-action">
-                        <a href="#">This is a link</a>
-                        <a href="#">This is a link</a>
+                        <a href="/new/book" class="dark-text">Add book</a>
+                        <a href="#" class="dark-text">Generate new file</a>
+                        <a href="#" class="dark-text">Import file</a>
                     </div>
                 </div>
             </div>

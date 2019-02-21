@@ -13,7 +13,7 @@
     <header>
         <nav>
             <div class="nav-wrapper lime darken-3">
-                &nbsp&nbsp&nbsp&nbsp<a href="#!" class="brand-logo"><i class="material-icons">local_library</i>YourBooks</a>
+                &nbsp&nbsp&nbsp&nbsp<a href="/" class="brand-logo"><i class="material-icons">local_library</i>YourBooks</a>
                 <ul class="right hide-on-med-and-down">
                     <li>
                         <form>
@@ -35,13 +35,14 @@
         </nav>
     </header>
     <body>
-        <main>
-            #{doLayout /}
-            <!-- Compiled and minified JavaScript -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-            <script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript"></script>
-            #{get 'moreScripts' /}
-        </main>
-    </body>
-    
+    <main>
+        #{doLayout /}
+        <!-- Compiled and minified JavaScript -->
+        <script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="@{'public/javascripts/main.js'}" type="text/javascript"></script>
+        #{get 'moreScripts' /}
+    </main>
+</body>
+
 </html>

@@ -1,13 +1,3 @@
-//********* color palette ********/
-
-.root{
-    --main-color: #7a416d; 
-    --main-light: #806083;
-    --main-contrast: #535077;
-    --main-contrast-light: #9CB1D2;
-    --main-contrast-shadow: #7B93B8;
-}
-
 
 body, html{
     height: 100%;
@@ -37,6 +27,62 @@ h1{
   display: flex;
 }
 
-a{
-    color: #f0f4c3 !important;
+.dark-text{
+    color: #827717 !important;
 }
+
+.dark-text:hover{
+    color: #9e9d24 !important;
+}
+
+#index-card{
+    margin-top: 8vw;
+    margin-left: 5vw;
+}
+
+#welcome-page{
+    margin-top: 7%;
+}
+
+.form-container{
+    width: 50%;
+    margin-top: 5%;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #f0f4c3;
+}
+
+.title{
+    padding: 20px; 
+    background-color: #9e9d24;
+    color: #fff;
+    font-size: 20px;
+}
+
+/* label focus color */
+ .input-field input:focus + label {
+   color: #db2b39 !important;
+ }
+ /* label underline focus color */
+ .row .input-field input:focus {
+   border-bottom: 1px solid #db2b39 !important;
+   box-shadow: 0 1px 0 0 #db2b39 !important
+ }
+ 
+ .btn{
+     background-color: #9e9d24;
+ }
+ 
+ .btn:hover{
+     background-color: #9e9d24;
+ }
+ 
+ #btn-save-book{
+     width: 100%;
+     background-color: #db2b39;
+ }
+ 
+ .row{
+     padding-left: 30px;
+     padding-right: 30px; 
+ }

@@ -1,0 +1,61 @@
+#{extends 'main.html' /}
+
+<div class="container form-container">
+    <div class="row title">
+        New book
+    </div>
+    #{if flash.success}
+    <div class="alert alert-success" role="alert">
+        ${flash.success}
+    </div>
+    #{/if}
+    <div class="row">
+        <form 
+            action='@{Books.AddBook}'
+            id='submitBook' 
+            class="col s12">
+            <div class="row">
+                <div class="input-field">
+                    <input placeholder="9783161484100" 
+                           name="isbn"
+                           required
+                           id="isbn" type="number" class="validate">
+                    <label for="isbn">ISBN</label>
+                    <span class="helper-text" data-error="Only numbers!" data-success="Correct">13 numbers</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field">
+                    <input placeholder="Percy Jackson"
+                           name="name"
+                           required
+                           id="name" type="text" class="validate">
+                    <label for="name">Book Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field">
+                    <input placeholder="Rick Riordan"
+                           name="author"
+                           required
+                           id="author" type="text" class="validate">
+                    <label for="author">Author</label>
+                </div>
+            </div>
+            <div class='row'>
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>Extract</span>
+                        <input type="file">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text" placeholder='Upload the extract of the book if you wish. This is optional'>
+                    </div>
+                </div>
+            </div>
+            <input type='submit' id='btn-save-book' class='btn' value="Save book">
+            <p id="message"></p>
+        </form>
+    </div>
+
+</div>
