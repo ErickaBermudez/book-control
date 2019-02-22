@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package models;
 
 import javax.persistence.*;
@@ -14,14 +13,23 @@ import play.db.jpa.*;
  *
  * @author dsi
  */
-@Entity 
-public class Book extends Model{
+@Entity
+public class Book extends Model {
 
-    public int getISBN() {
+    @Required
+    public String ISBN;
+
+    @Required
+    public String name;
+
+    @Required
+    public String author;
+
+    public String getISBN() {
         return ISBN;
     }
 
-    public void setISBN(int ISBN) {
+    public void setISBN(String ISBN) {
         this.ISBN = ISBN;
     }
 
@@ -33,30 +41,12 @@ public class Book extends Model{
         this.name = name;
     }
 
-
-    public Blob getExtract() {
-        return extract;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setExtract(Blob extract) {
-        this.extract = extract;
+    public void setAuthor(String author) {
+        this.author = author;
     }
-    /***** genres ******/
-    final int COMEDY = 0; 
-    final int FANTASY = 1; 
-    final int ROMANCE = 2;
-    final int HORROR = 3; 
-    /*******************/
-    
-    @Required
-    public int ISBN; 
-    
-    @Required
-    public String name; 
-    
-    @Required
-    public String author;
-    
-    public Blob extract;
-    
+
 }

@@ -35,6 +35,14 @@ h1{
     color: #9e9d24 !important;
 }
 
+.black-text{
+    color: #212121 !important;
+}
+
+.back-text:hover{
+    color: #827717 !important;
+}
+
 #index-card{
     margin-top: 8vw;
     margin-left: 5vw;
@@ -85,4 +93,14 @@ h1{
  .row{
      padding-left: 30px;
      padding-right: 30px; 
+ }
+ 
+ .accent-color{
+     background-color: #db2b39 !important;
+ }
+ 
+ .table-container{
+     margin-top: 3vw;
+     background: #f9fbe7;
+     opacity: 0.8;
  }

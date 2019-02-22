@@ -2,22 +2,32 @@
 
 <div class="container form-container">
     <div class="row title">
-        New book
+        Edit book
     </div>
     #{ifErrors}
-        <p>Error(s) found!</p>
+    <p>Error(s) found!</p>
     #{/ifErrors}
     <div class="row">
         <form 
-            action='@{Books.AddBook}'
+            action='@{Books.SaveChanges}'
             id='submitBook' 
             class="col s12">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input readonly
+                        id="id"
+                        name="id"
+                        value="${book.id}" type="text" class="validate">
+                    <label for="disabled">ID: </label>
+                </div>
+            </div>
             <div class="row">
                 <div class="input-field">
                     <input placeholder="9783161484100" 
                            name="isbn"
                            required
                            pattern="[0-9]+"
+                           value="${book.ISBN}"
                            id="isbn" type="text" class="validate">
                     <label for="isbn">ISBN</label>
                     <span class="helper-text" data-error="Only numbers!" data-success="Correct">13 numbers</span>
@@ -28,6 +38,7 @@
                     <input placeholder="Percy Jackson"
                            name="name"
                            required
+                           value="${book.name}"
                            id="name" type="text" class="validate">
                     <label for="name">Book Name</label>
                 </div>
@@ -37,11 +48,12 @@
                     <input placeholder="Rick Riordan"
                            name="author"
                            required
+                           value="${book.author}"
                            id="author" type="text" class="validate">
                     <label for="author">Author</label>
                 </div>
             </div>
-            <input type='submit' id='btn-save-book' class='btn' value="Save book">
+            <input type='submit' id='btn-save-book' class='btn' value="Save changes">
             <p id="message"></p>
         </form>
     </div>
@@ -49,10 +61,11 @@
 </div>
 
 <script>
-    document.getElementById("submitBook").onsubmit = function() {toast()};
-    
-    function toast(){
-       M.toast({html: 'Changes saved!'})
+    document.getElementById("submitBook").onsubmit = function() {
+        toast()
+    };
+
+    function toast() {
+        M.toast({html: 'Changes saved!'})
     }
 </script>
-

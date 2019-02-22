@@ -3,9 +3,9 @@
 <html>
     <head>
         <title>#{get 'title' /}</title>
-        <!-- Compiled and minified CSS -->
+        <!--Materialize-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
+        
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
         #{get 'moreStyles' /}
@@ -25,7 +25,7 @@
                         </form>
                     </li>
                     <li><a href="sass.html"><i class="material-icons">search</i></a></li>
-                    <li><a href="badges.html"><i class="material-icons">view_module</i></a></li>
+                    <li><a href="/new/list"><i class="material-icons">view_module</i></a></li>
                     <li><a href="collapsible.html"><i class="material-icons">refresh</i></a></li>
                     <li><a href="mobile.html"><i class="material-icons">more_vert</i></a></li>
 
@@ -37,10 +37,16 @@
     <body>
     <main>
         #{doLayout /}
-        <!-- Compiled and minified JavaScript -->
+        <!-- JQuery-->
         <script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+        <!-- Materialize -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <!-- Data table -->
+        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.18/b-1.5.4/b-html5-1.5.4/b-print-1.5.4/datatables.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        <!-- Project scripts -->
         <script src="@{'public/javascripts/main.js'}" type="text/javascript"></script>
+        <script src="@{'public/javascripts/table.js'}" type="text/javascript"></script>
         #{get 'moreScripts' /}
     </main>
 </body>

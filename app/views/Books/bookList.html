@@ -1,0 +1,30 @@
+#{extends 'main.html' /}
+<form action='#'>
+    <div class='container table-container'>
+        <table id='books' class='table'>
+            <thead class='title accent-color'>
+                <tr>
+                    <th>ISBN</th>
+                    <th>Name</th>
+                    <th>Author</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                #{list items: books, as: 'book'}
+                <tr>
+            <td>${book.ISBN}</td>
+            <td>${book.name}</td>
+            <td>${book.author}</td>
+            <td>
+                <a class='black-text' href='/delete'><i class="small material-icons">clear</i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a class='black-text' href='/edit/${book.id}'><i class="small material-icons">edit</i></a>
+            </td>
+            </tr>
+            #{/list}
+
+            </tbody>
+        </table>
+    </div>
+</form>
