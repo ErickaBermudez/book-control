@@ -24,7 +24,7 @@ h1{
 }
 
 .flex-container {
-  display: flex;
+    display: flex;
 }
 
 .dark-text{
@@ -68,39 +68,58 @@ h1{
 }
 
 /* label focus color */
- .input-field input:focus + label {
-   color: #db2b39 !important;
- }
- /* label underline focus color */
- .row .input-field input:focus {
-   border-bottom: 1px solid #db2b39 !important;
-   box-shadow: 0 1px 0 0 #db2b39 !important
- }
- 
- .btn{
-     background-color: #9e9d24;
- }
- 
- .btn:hover{
-     background-color: #9e9d24;
- }
- 
- #btn-save-book{
-     width: 100%;
-     background-color: #db2b39;
- }
- 
- .row{
-     padding-left: 30px;
-     padding-right: 30px; 
- }
- 
- .accent-color{
-     background-color: #db2b39 !important;
- }
- 
- .table-container{
-     margin-top: 3vw;
-     background: #f9fbe7;
-     opacity: 0.8;
- }
+.input-field input:focus + label {
+    color: #db2b39 !important;
+}
+/* label underline focus color */
+.row .input-field input:focus {
+    border-bottom: 1px solid #db2b39 !important;
+    box-shadow: 0 1px 0 0 #db2b39 !important
+}
+
+.btn{
+    background-color: #9e9d24;
+}
+
+.btn:hover{
+    background-color: #9e9d24;
+}
+
+#btn-save-book{
+    width: 100%;
+    background-color: #db2b39;
+}
+
+.row{
+    padding-left: 30px;
+    padding-right: 30px; 
+}
+
+.accent-color{
+    background-color: #db2b39 !important;
+}
+
+.table-container{
+    margin-top: 3vw;
+    background: #f9fbe7;
+}
+
+.menu-container{
+    margin-top: 3vw;
+}
+
+.btn-generate{
+    background-color: #db2b39;
+    font-size: 20px;
+    width: 180px; 
+    height: auto;
+    padding-right: 40px; 
+    padding-left: 40px; 
+    padding-top: 10px; 
+    padding-bottom: 10px;
+}
+
+.btn-generate:hover{
+    background-color: #ff6463 !important;
+}
+

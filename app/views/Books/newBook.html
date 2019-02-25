@@ -42,7 +42,6 @@
                 </div>
             </div>
             <input type='submit' id='btn-save-book' class='btn' value="Save book">
-            <p id="message"></p>
         </form>
     </div>
 
@@ -52,7 +51,7 @@
     document.getElementById("submitBook").onsubmit = function() {toast()};
     
     function toast(){
-       M.toast({html: 'Changes saved!'})
+       M.toast({html: 'Book added!'})
     }
 </script>
 

@@ -20,8 +20,11 @@ GET     /new/book                                Books.newBook
 GET     /new/list                               Books.bookList
 
 # Actions for books
-GET     /delete                                 Books.delete
+GET     /delete/{id}                            Books.delete
 GET     /edit/{id}                              Books.edit
+
+# Actions to generate files
+GET     /generate/xml                           Books.generateXML
 
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}
