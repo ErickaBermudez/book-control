@@ -25,6 +25,7 @@ GET     /edit/{id}                              Books.edit
 
 # Actions to generate files
 GET     /generate/xml                           Books.generateXML
+GET     /generate/pdf                           Books.generatePDF
 
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}

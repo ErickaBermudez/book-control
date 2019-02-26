@@ -5,11 +5,12 @@
     <div class="col s12 m4 l2">
         <div class='menu-container'>
             <button type='button' class='btn btn-generate'
-                    onclick="location.href = '/generate/xml'">
+                    id='xml'>
                 <i class='small material-icons'>archive</i>
                 XML
             </button>
-            <button type='button' class='btn btn-generate'>
+            <button type='button' class='btn btn-generate'
+                    id='pdf'>
                 <i class='small material-icons'>picture_as_pdf</i>
                 PDF
             </button>
@@ -33,12 +34,12 @@
                         <td>${book.ISBN}</td>
                         <td>${book.name}</td>
                         <td>${book.author}</td>
-                    <td>
-                        <a id='deleteBook' class='black-text' href='/delete/${book.id}'><i class="small material-icons">clear</i></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a class='black-text' href='/edit/${book.id}'><i class="small material-icons">edit</i></a>
-                    </td>
+                        <td>
+                            <a id='deleteBook' class='black-text' href='/delete/${book.id}'><i class="small material-icons">clear</i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a class='black-text' href='/edit/${book.id}'><i class="small material-icons">edit</i></a>
+                        </td>
                     </tr
-                #{/list}
+                    #{/list}
 
                 </tbody>
             </table>
@@ -47,10 +48,20 @@
 
     <script>
         document.getElementById("deleteBook").onclick = function() {
-            toast()
-        };
+            toast("Book deleted!")
+        }
 
-        function toast() {
-            M.toast({html: 'Book deleted!'})
+        document.getElementById("xml").onclick = function() {
+            location.href = '/generate/xml'
+            toast("Generating!")
+        }
+
+        document.getElementById("pdf").onclick = function() {
+            location.href = '/generate/pdf'
+            toast("Generating!")
+        }
+
+        function toast(message) {
+            M.toast({html: message})
         }
     </script>
