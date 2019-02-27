@@ -31,6 +31,11 @@ public class Books extends Controller {
         render();
     }
 
+    public static void bookList() {
+        List<Book> books = Book.findAll();
+        render(books);
+    }
+
     public static void edit(Long id) {
         Book book = new Book();
         book = Book.findById(id);
@@ -92,11 +97,6 @@ public class Books extends Controller {
 
     }
 
-    public static void bookList() {
-        List<Book> books = Book.findAll();
-        render(books);
-    }
-
     public static void delete(Long id) {
         Book book;
         book = Book.findById(id);
@@ -112,7 +112,7 @@ public class Books extends Controller {
     public static void generateXML(String[] args) {
         List<Book> books = Book.findAll();
         try {
-            String route = FileChooser.getRute();
+            String route = FileChooser.getPath();
             System.out.println("ROUTE: " + route);
             Element list = new Element("list");
             Document doc = new Document(list);
@@ -147,7 +147,7 @@ public class Books extends Controller {
         PDDocument document = new PDDocument();
         PDPage my_page = new PDPage();
         document.addPage(my_page);
-        String route = FileChooser.getRute();
+        String route = FileChooser.getPath();
         // For tests
         //route = "/home/dsi/Escritorio";
 
@@ -172,7 +172,7 @@ public class Books extends Controller {
         text = "";
         for (int i = 0; i < books.size(); i++) {
             Book currentBook = books.get(i);
-            text = i+1 + ". " + currentBook.name + " by "
+            text = i + 1 + ". " + currentBook.name + " by "
                     + currentBook.author;
             contentStream.showText(text);
             contentStream.newLine();
@@ -184,12 +184,31 @@ public class Books extends Controller {
         bookList();
     }
 
-    public static void readXML(String[] args) {
-        String fileName = "books.xml";
-        Document document = getSAXParsedDocument(fileName);
 
+    public static void importXML(String[] args) {
+        String path = utils.FileChooser.getFilePath();
+        Document document = getSAXParsedDocument(path);
+        
+        // Save old list so we can go back...
+        List<Book> booksOld = Book.findAll();
+        
+        // Delete old list
+        Book.deleteAll();
+        
         Element rootNode = document.getRootElement();
-        System.out.println("Root Element :: " + rootNode.getName());
+        
+        List list = rootNode.getChildren("book");
+        
+        for(int i = 0; i < list.size(); i++){
+            Book book = new Book();
+            Element node = (Element) list.get(i);
+            book.setISBN(node.getChildText("isbn"));
+            book.setName(node.getChildText("name"));
+            book.setAuthor(node.getChildText("author"));
+            book.save();
+        }
+        
+        bookList();
 
     }
 

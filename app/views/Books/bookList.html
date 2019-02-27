@@ -14,6 +14,11 @@
                 <i class='small material-icons'>picture_as_pdf</i>
                 PDF
             </button>
+            <button type='button' class='btn btn-generate'
+                    id='import'>
+                <i class='small material-icons'>import_export</i>
+                IMPORT
+            </button>
         </div>
     </div>
     <div class="col s12 m4 l10">
@@ -54,6 +59,11 @@
         document.getElementById("xml").onclick = function() {
             location.href = '/generate/xml'
             toast("Generating!")
+        }
+        
+        document.getElementById("import").onclick = function() {
+            location.href = '/import'
+            toast("Importing your file...")
         }
 
         document.getElementById("pdf").onclick = function() {
