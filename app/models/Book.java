@@ -5,6 +5,7 @@
  */
 package models;
 
+import java.util.List;
 import javax.persistence.*;
 import play.data.validation.*;
 import play.db.jpa.*;
@@ -47,6 +48,16 @@ public class Book extends Model {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+    
+    public List<Book> getCurrentBooks(){
+        List<Book> books; 
+        books = Book.findAll();
+        return books;
+    }
+    
+    public void deleteBooks(){
+        Book.deleteAll();
     }
 
 }

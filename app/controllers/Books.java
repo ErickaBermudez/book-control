@@ -27,6 +27,16 @@ import utils.*;
 
 public class Books extends Controller {
 
+    private static List<Book> booksOld;
+
+    public static void setOldList(List<Book> books) {
+        booksOld = books;
+    }
+
+    public static List<Book> getOldList() {
+        return booksOld;
+    }
+
     public static void newBook() {
         render();
     }
@@ -167,6 +177,7 @@ public class Books extends Controller {
         contentStream.newLine();
         contentStream.newLine();
         contentStream.setFont(PDType1Font.COURIER_BOLD, 20);
+
         // We add the books to the text 
         List<Book> books = Book.findAll();
         text = "";
@@ -189,7 +200,8 @@ public class Books extends Controller {
         Document document = getSAXParsedDocument(path);
 
         // Save old list so we can go back...
-        List<Book> booksOld = Book.findAll();
+        List<Book> oldList = Book.findAll();
+        
 
         try {
             Element rootNode = document.getRootElement();
@@ -211,7 +223,28 @@ public class Books extends Controller {
             System.out.println("Error: " + e.getMessage());
             bookList();
         }
+    }
 
+    public static void goBackList() {
+        // First we save old list so we can go back the back.... 
+        List<Book> booksOld = Book.findAll();
+        
+        // Now we continue... 
+        Book.deleteAll();
+        List<Book> booksNew = getOldList();
+
+        for (int i = 0; i < booksNew.size(); i++) {
+            Book book = new Book();
+            book.setISBN(booksNew.get(i).ISBN); 
+            book.setName(booksNew.get(i).name);
+            book.setAuthor(booksNew.get(i).author);
+            book.save();
+        }
+        
+        // Finally we save the old list
+        setOldList(booksOld);
+        
+        bookList();
     }
 
     private static Document getSAXParsedDocument(final String fileName) {
