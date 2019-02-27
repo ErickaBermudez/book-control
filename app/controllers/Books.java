@@ -184,31 +184,33 @@ public class Books extends Controller {
         bookList();
     }
 
-
     public static void importXML(String[] args) {
         String path = utils.FileChooser.getFilePath();
         Document document = getSAXParsedDocument(path);
-        
+
         // Save old list so we can go back...
         List<Book> booksOld = Book.findAll();
-        
-        // Delete old list
-        Book.deleteAll();
-        
-        Element rootNode = document.getRootElement();
-        
-        List list = rootNode.getChildren("book");
-        
-        for(int i = 0; i < list.size(); i++){
-            Book book = new Book();
-            Element node = (Element) list.get(i);
-            book.setISBN(node.getChildText("isbn"));
-            book.setName(node.getChildText("name"));
-            book.setAuthor(node.getChildText("author"));
-            book.save();
+
+        try {
+            Element rootNode = document.getRootElement();
+            // Delete old list
+            Book.deleteAll();
+            List list = rootNode.getChildren("book");
+
+            for (int i = 0; i < list.size(); i++) {
+                Book book = new Book();
+                Element node = (Element) list.get(i);
+                book.setISBN(node.getChildText("isbn"));
+                book.setName(node.getChildText("name"));
+                book.setAuthor(node.getChildText("author"));
+                book.save();
+            }
+
+            bookList();
+        } catch (NullPointerException e) {
+            System.out.println("Error: " + e.getMessage());
+            bookList();
         }
-        
-        bookList();
 
     }
 
